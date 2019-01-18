@@ -1,9 +1,18 @@
-class Api::Vi::BooksController < ApplicationController
+class Api::V1::BooksController < ApplicationController
   before_action :find_book, only: [:update]
 
   def index
     @book = Book.all
     render json: @book
+  end
+
+  def create
+    @book = Book.create(user_params)
+    if @book.valid?
+      render json: @book, status: :accepted
+    else
+      render json: { errors: @book.errors.full_messages }, status: :unprocessible_entity
+    end
   end
 
   def update
@@ -17,7 +26,7 @@ class Api::Vi::BooksController < ApplicationController
   private
 
   def book_params
-    params.permit(:name, :location, :food_type, :likes, :photo, :user_id)
+    params.permit(:title, :character_id)
   end
 
   def find_book

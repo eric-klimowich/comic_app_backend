@@ -1,4 +1,4 @@
-class Api::Vi::CharactersController < ApplicationController
+class Api::V1::CharactersController < ApplicationController
   before_action :find_character, only: [:update]
 
   def index
@@ -7,11 +7,11 @@ class Api::Vi::CharactersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    if @user.valid?
-      render json: @user, status: :accepted
+    @character = Character.create(user_params)
+    if @character.valid?
+      render json: @character, status: :accepted
     else
-      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: @character.errors.full_messages }, status: :unprocessible_entity
     end
   end
 
@@ -26,7 +26,7 @@ class Api::Vi::CharactersController < ApplicationController
   private
 
   def character_params
-    params.permit(:name, :location, :food_type, :likes, :photo, :user_id)
+    params.permit(:name)
   end
 
   def find_character

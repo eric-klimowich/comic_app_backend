@@ -1,4 +1,4 @@
-class Api::Vi::LikesController < ApplicationController
+class Api::V1::LikesController < ApplicationController
   before_action :find_like, only: [:update]
 
   def index
@@ -26,10 +26,10 @@ class Api::Vi::LikesController < ApplicationController
   private
 
   def like_params
-    params.permit(:name, :location, :fav_food)
+    params.permit(:user_id, :comic_id)
   end
 
-  def find_comment
+  def find_like
     @like = Like.find(params[:id])
   end
 end
