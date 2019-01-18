@@ -6,6 +6,15 @@ class Api::Vi::CharactersController < ApplicationController
     render json: @character
   end
 
+  def create
+    @user = User.create(user_params)
+    if @user.valid?
+      render json: @user, status: :accepted
+    else
+      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
+    end
+  end
+
   def update
     if @character.update(character_params)
       render json: @character, status: :accepted
