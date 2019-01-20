@@ -12,9 +12,9 @@ Book.destroy_all
 Comic.destroy_all
 Like.destroy_all
 
-User.create(first_name: "Eric", last_name: "Klimowich", fav_char: "Spider-Man", fav_team: "Avengers")
-User.create(first_name: "Keith", last_name: "Phillips", fav_char: "Cyclops", fav_team: "X-Men")
-User.create(first_name: "Jason", last_name: "Crescenzo", fav_char: "Batman", fav_team: "Avengers")
+User.create(first_name: "Eric", last_name: "Klimowich", username: "eklimowich", password: "password", fav_char: "Spider-Man", fav_team: "Avengers")
+User.create(first_name: "Keith", last_name: "Phillips", username: "kphillips", password: "password", fav_char: "Cyclops", fav_team: "X-Men")
+User.create(first_name: "Jason", last_name: "Crescenzo", username: "jcrescenzo", password: "password", fav_char: "Batman", fav_team: "Avengers")
 
 Character.create(name: "Spider-Man")
 Character.create(name: "Batman")
