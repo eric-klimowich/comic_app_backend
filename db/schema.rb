@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_200917) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
+    t.string "img_url"
     t.integer "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,6 +25,10 @@ ActiveRecord::Schema.define(version: 2019_01_17_200917) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
+    t.string "alter_ego"
+    t.string "first_appearance"
+    t.string "img_url"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

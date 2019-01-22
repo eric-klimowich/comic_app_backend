@@ -26,7 +26,7 @@ class Api::V1::BooksController < ApplicationController
   private
 
   def book_params
-    params.permit(:title, :character_id)
+    params.permit(:title, :img_url, :character_id)
   end
 
   def find_book

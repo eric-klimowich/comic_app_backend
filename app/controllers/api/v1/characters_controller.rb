@@ -26,7 +26,7 @@ class Api::V1::CharactersController < ApplicationController
   private
 
   def character_params
-    params.permit(:name)
+    params.permit(:name, :alter_ego, :first_appearance, :img_url, :description)
   end
 
   def find_character
